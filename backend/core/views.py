@@ -18,7 +18,7 @@ class NoteCreateView(LoginRequiredMixin, CreateView):
     model = Note
     form_class = NoteForm
     template_name = "core/note_form.html"
-    success_url = reverse_lazy("dashboard")
+    success_url = reverse_lazy("core:dashboard")  # <-- CAMBIAR AQUÍ
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
